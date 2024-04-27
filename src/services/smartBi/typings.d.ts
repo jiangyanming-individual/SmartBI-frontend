@@ -155,6 +155,12 @@ declare namespace API {
     id?: number;
   };
 
+  type geneChartAsynMqUsingPOSTParams = {
+    chartName?: string;
+    chartType?: string;
+    goal?: string;
+  };
+
   type geneChartAsynUsingPOSTParams = {
     chartName?: string;
     chartType?: string;
@@ -342,6 +348,7 @@ declare namespace API {
     userAccount?: string;
     userAvatar?: string;
     userName?: string;
+    userPassword?: string;
     userRole?: string;
   };
 

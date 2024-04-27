@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import TextArea from "antd/es/input/TextArea";
 import {UploadOutlined} from "@ant-design/icons";
 import ReactECharts from 'echarts-for-react';
-import {geneChartAsynUsingPost, geneChartUsingPost} from "@/services/smartBi/chartController";
+import {geneChartAsynMqUsingPost, geneChartAsynUsingPost, geneChartUsingPost} from "@/services/smartBi/chartController";
 import {useForm} from "antd/es/form/Form";
 
 
@@ -27,7 +27,7 @@ const AddChartByAsync: React.FC = () => {
     };
     try {
        console.log(values.file)
-       const res=await geneChartAsynUsingPost(params,{},values.file.file.originFileObj); //传递参数；
+       const res=await geneChartAsynMqUsingPost(params,{},values.file.file.originFileObj); //传递参数；
       if (!res?.data){
          message.error('分析数据上传失败，稍后请重试');
        }else {

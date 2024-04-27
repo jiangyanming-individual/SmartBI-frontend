@@ -2,6 +2,10 @@
 
 This project is initialized with [鸭子智能BI](https://pro.ant.design). Follow is the quick guide for how to use.
 
+## 效果展示
+![img_1.png](img_1.png)
+![img.png](img.png)
+
 ## Environment Prepare
 
 Install `node_modules`:

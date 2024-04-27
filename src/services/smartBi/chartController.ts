@@ -129,6 +129,47 @@ export async function geneChartAsynUsingPost(
   });
 }
 
+/** geneChart_asyn_mq POST /api/Chart/generate/async/mq */
+export async function geneChartAsynMqUsingPost(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.geneChartAsynMqUsingPOSTParams,
+  body: {},
+  file?: File,
+  options?: { [key: string]: any },
+) {
+  const formData = new FormData();
+
+  if (file) {
+    formData.append('file', file);
+  }
+
+  Object.keys(body).forEach((ele) => {
+    const item = (body as any)[ele];
+
+    if (item !== undefined && item !== null) {
+      if (typeof item === 'object' && !(item instanceof File)) {
+        if (item instanceof Array) {
+          item.forEach((f) => formData.append(ele, f || ''));
+        } else {
+          formData.append(ele, JSON.stringify(item));
+        }
+      } else {
+        formData.append(ele, item);
+      }
+    }
+  });
+
+  return request<API.BaseResponseBiGenResponse_>('/api/Chart/generate/async/mq', {
+    method: 'POST',
+    params: {
+      ...params,
+    },
+    data: formData,
+    requestType: 'form',
+    ...(options || {}),
+  });
+}
+
 /** getChartVOById GET /api/Chart/get */
 export async function getChartVoByIdUsingGet(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
